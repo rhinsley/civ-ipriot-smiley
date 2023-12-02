@@ -3,17 +3,9 @@ from blinkable import Blinkable
 from smiley import Smiley
 
 
-class Happy(Smiley, Blinkable):
-    """
-    Happy is a subclass of Smiley and of Blinkable.
-
-    Note that Blinkable is an interface (an abstract base
-    class that only contains an abstract method). By subclassing
-    Blinkable, this class promises to implement the abstract
-    method.See {meth:blink} below.
-    """
+class Angry(Smiley, Blinkable):
     def __init__(self):
-        super().__init__()
+        super().__init__(complexion=self.RED)
 
         self.draw_mouth()
         self.draw_eyes()
@@ -22,7 +14,7 @@ class Happy(Smiley, Blinkable):
         """
         Method that draws the mouth on the standard faceless smiley.
         """
-        mouth = [41, 46, 50, 51, 52, 53]
+        mouth = [49, 54, 42, 43, 44, 45]
         for pixel in mouth:
             self.pixels[pixel] = self.BLANK
 
@@ -37,7 +29,7 @@ class Happy(Smiley, Blinkable):
 
     def blink(self, delay=0.25):
         """
-        Make the happy smiley blink once with a certain delay (in s).
+        Make the angry smiley blink once with a certain delay (in s).
         This is the implementation of the abstract method from the
         Blinkable abstract class.
 
